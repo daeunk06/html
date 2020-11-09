@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C01Selector03</title>
+    <style>
+
+    #content{
+        width:300px; background-color: yellow;
+    }
+    /* list-style이  none이면 li의 좌측블릿이 제거된다*/
+    ul li {
+        list-style: none; border: 1px solid rgb(12, 12, 12);
+        font-size: 24px; font-weight: bold; height: 50px;
+    }
+    /*
+    11.구조선택자  : 동일한 수준의 태그들 중 홀수 혹은 짝수번째
+        요소를 선택하여 스타일을 적용할때 사용. n은 0부터 시작한다.
+    */
+    div#content ul li:nth-child(2n +1){ /*홀수번째 요소선택*/
+        background-color:  #f8def3;
+    }
+    div#content ul li:nth-child(2n ){/*짝수 번째 요소 선택*/
+        background-color: rgb(195, 226, 238);
+    }
+    /*처음과 마지막 요소 선택*/
+    div#content ul li:first-child{
+            background-color: salmon; color: black;
+        }
+        div#content ul li:last-child{
+            background-color: salmon; color: beige;
+        }
+
+    /*구조선택자는 정수 사용가능*/
+    li:nth-child(2){
+        color: red;
+    }
+   /*
+   문자 선택자: 특정 요소의 글자 혹은 문자열을 선택하여 스타일을 적용*/
+    #start:first-letter, #end:first-letter{
+                font-size: 30px;
+            }
+    #start:first-line, #end:first-line{
+                color: chocolate; font-weight: bold;
+            }
+    /*
+    해당 텍스트를 블럭으로 지정할 경우 반전되는 배경색과 글자색 지정*/
+    #character p:first-child::selection{
+        color:yellow; background-color:black;
+    }
+
+
+    </style>
+</head>
+<body>
+    <h2>구조선택자</h2>
+    <div id="content">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+            <li>메뉴5</li>
+            <li>메뉴6</li>
+        </ul>
+    </div>
+
+    <h2>문자 선택자</h2>
+    <div id="character">
+        <p id="start">
+                강의시작날짜 <br> 19년 4월 10일
+        </p>
+        <p id="end">
+            강의종료날짜 <br> 19년 10월 15일
+        </p>
+    </div>
+    <div>
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+            <li>메뉴5</li>
+        </ul>
+    </div>
+
+</body>
+</html>
